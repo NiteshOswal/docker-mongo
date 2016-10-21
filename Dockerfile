@@ -9,7 +9,7 @@ RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 0C49F3730359A14
 RUN echo "deb http://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/$MONGO_MAJOR multiverse" | tee /etc/apt/sources.list.d/mongodb-org.list
 RUN apt-get update\
     && \
-        apt-get install -y --force-yes \
+        apt-get install -y \
             mongodb-org=$MONGO_VERSION \
             mongodb-org-server=$MONGO_VERSION \
             mongodb-org-shell=$MONGO_VERSION \
@@ -28,7 +28,7 @@ RUN apt-get update\
 
 
 # Create that mongo.service unit for systemd
-RUN wget https://raw.githubusercontent.com/NiteshOswal/docker-mongo/master/mongod.service > /lib/systemd/system/mongod.service
+RUN wget https://rawgit.com/NiteshOswal/docker-mongo/master/mongod.service > /lib/systemd/system/mongod.service
 
 EXPOSE 27017
 RUN systemctl start mongod.service
