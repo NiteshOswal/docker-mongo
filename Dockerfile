@@ -5,7 +5,7 @@ RUN apt-get update
 
 ENV MONGO_MAJOR 3.2
 ENV MONGO_VERSION 3.2.10
-RUN sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv EA312927
+RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv EA312927
 RUN echo "deb http://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/$MONGO_MAJOR multiverse" | tee /etc/apt/sources.list.d/mongodb-org.list
 RUN apt-get update\
     && \
