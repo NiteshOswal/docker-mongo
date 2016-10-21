@@ -34,4 +34,4 @@ RUN wget https://rawgit.com/NiteshOswal/docker-mongo/master/mongod.service > /li
 EXPOSE 27017
 RUN systemctl start mongod.service
 
-ENTRYPOINT $(which mongo)
+ENTRYPOINT /usr/bin/mongo
