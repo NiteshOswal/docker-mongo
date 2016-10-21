@@ -44,3 +44,5 @@ WantedBy=multi-user.target" >> /lib/systemd/system/mongod.service
 
 EXPOSE 27017
 RUN systemctl start mongod.service
+
+ENTRYPOINT $(which mongo)
