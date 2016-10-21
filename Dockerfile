@@ -28,19 +28,7 @@ RUN apt-get update\
 
 
 # Create that mongo.service unit for systemd
-RUN \
-echo "[Unit]
-Description=High-performance, schema-free document-oriented database
-After=network.target
-Documentation=https://docs.mongodb.org/manual
-
-[Service]
-User=mongodb
-Group=mongodb
-ExecStart=/usr/bin/mongod --quiet --config /etc/mongod.conf
-
-[Install]
-WantedBy=multi-user.target" >> /lib/systemd/system/mongod.service
+RUN wget https://raw.githubusercontent.com/NiteshOswal/docker-mongo/master/mongod.service > /lib/systemd/system/mongod.service
 
 EXPOSE 27017
 RUN systemctl start mongod.service
