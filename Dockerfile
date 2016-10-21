@@ -31,7 +31,9 @@ RUN apt-get update\
 # Create that mongo.service unit for systemd
 RUN wget https://rawgit.com/NiteshOswal/docker-mongo/master/mongod.service > /lib/systemd/system/mongod.service
 
-EXPOSE 27017
+VOLUME [ “/sys/fs/cgroup” ]
+
 RUN systemctl start mongod.service
+EXPOSE 27017
 
 ENTRYPOINT /usr/bin/mongo
